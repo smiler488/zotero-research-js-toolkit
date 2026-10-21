@@ -1,0 +1,14 @@
+{
+  "name": "zotero-research-js-toolkit",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Validation tools for standalone Zotero research scripts; original scripts pending recovery",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs && node tools/validate.mjs --scaffold",
+    "verify:scaffold": "node tools/validate.mjs --scaffold",
+    "verify:release": "node tools/validate.mjs --release"
+  },
+  "license": "MIT"
+}

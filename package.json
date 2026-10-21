@@ -1,14 +1,10 @@
 {
   "name": "zotero-research-js-toolkit",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Copy-paste JavaScript snippets for Zotero 10's Run JavaScript tool",
   "private": true,
-  "description": "Validation tools for standalone Zotero research scripts; original scripts pending recovery",
   "type": "module",
+  "scripts": { "test": "node --test tests/run-tests.mjs" },
   "engines": { "node": ">=20" },
-  "scripts": {
-    "test": "node --test test/*.test.mjs && node tools/validate.mjs --scaffold",
-    "verify:scaffold": "node tools/validate.mjs --scaffold",
-    "verify:release": "node tools/validate.mjs --release"
-  },
   "license": "MIT"
 }

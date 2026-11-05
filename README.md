@@ -2,12 +2,19 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-A collection of 14 copy-paste JavaScript snippets for Zotero's built-in **Run JavaScript** tool, written for researchers who manage large literature libraries (metadata hygiene, review matrices, annotation export, systematic-review screening and simple bibliometrics).
+Fourteen JavaScript snippets for Zotero's built-in **Run JavaScript** tool. I wrote them for the chores of a large literature library: finding records without DOI or PDF, merging near-duplicates, exporting highlights, building a review matrix, and doing a first keyword screen of search results before reading full texts.
 
-- **Target version:** Zotero 10 (10.0.x). See [compatibility notes](docs/compatibility.md).
-- **Safe by default:** 11 scripts are read-only. Of the 3 scripts that can write, 03 (DOI cleanup) and 04 (auto-tagging) default to preview mode and 05 (DOI fix) always shows a dialog first. Every write path asks for confirmation with *Cancel* as the default button, copies a rollback log to the clipboard first, skips read-only libraries, and never deletes items, attachments, notes or tags.
-- **No plugin, no network:** scripts run inside Zotero and send nothing anywhere.
-- **Bilingual:** each script has an English/Chinese header (what it does, when to use it, how to run it, caveats) and a `LANG = "zh" | "en"` switch for its output.
+Each script is a single file you paste into Zotero. There is nothing to install and nothing leaves your computer. Target version is Zotero 10 (10.0.x); see the [compatibility notes](docs/compatibility.md).
+
+Eleven scripts only read. The other three change data in a careful way:
+
+- 03 (DOI clean-up) and 04 (auto-tagging) start in preview mode, and 05 (DOI fix) always asks first.
+- The confirmation dialog defaults to *Cancel*.
+- A rollback log is copied to the clipboard before anything is saved.
+- Read-only group libraries are skipped.
+- Nothing is ever deleted.
+
+Every script has an English and Chinese header (what it does, when to use it, how to run it, caveats) and a `LANG = "zh" | "en"` switch for its output.
 
 ## Quick start
 
@@ -37,7 +44,7 @@ Full walkthrough: [docs/getting-started.md](docs/getting-started.md).
 | **13** | [Title/abstract screening → CSV](scripts/03-research-mining/13-title-abstract-screening-csv.js) | Read-only | Two keyword groups + exclusions → triage CSV |
 | **14** | [Topic trend by year → CSV](scripts/03-research-mining/14-topic-trend-by-year-csv.js) | Read-only | Per-year counts of topics for plotting |
 
-**Intentional overlaps** (all kept): 01 vs 08 (general vs citation-focused metadata checks) and 03 vs 05 (preview-first for all item types vs always-ask for journal articles). Each category folder has its own README with a bilingual summary.
+Two pairs overlap on purpose. 01 is a general metadata check and 08 checks citation-ready fields. 03 previews DOI clean-up for every item type, while 05 handles journal articles only and always asks before writing. Each category folder has its own README with a bilingual summary.
 
 ## Repository layout
 
@@ -71,6 +78,10 @@ node --test tests/run-tests.mjs   # Node.js ≥ 20, no dependencies
 ```
 
 The suite runs every script against a mock of the Zotero API (35 tests). It verifies logic and safety guarantees, but it is not a substitute for running in Zotero; see [docs/test-record.md](docs/test-record.md) for what has and has not been verified in a live Zotero 10 installation.
+
+## Citation
+
+See [`CITATION.cff`](CITATION.cff).
 
 ## Contributing
 

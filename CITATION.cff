@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use these scripts, please cite them as below."
+title: "Zotero Research JS Toolkit"
+type: software
+authors:
+  - family-names: Deng
+    given-names: Liangchao
+repository-code: "https://github.com/smiler488/zotero-research-js-toolkit"
+license: MIT
+version: "1.0.0"
+date-released: "2026-10-21"
+keywords:
+  - Zotero
+  - reference management
+  - systematic review
